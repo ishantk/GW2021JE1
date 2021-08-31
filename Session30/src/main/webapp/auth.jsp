@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page errorPage="error.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,5 +9,16 @@
 </head>
 <body>
 	<center>We will Authenticate You here</center>
+	
+	<%
+	
+		// request and response -> Implicit Objects :)
+		String email = request.getParameter("txtEmail");
+		String password = request.getParameter("txtPassword");
+		
+		Integer.parseInt(email);
+	
+	%>
+	
 </body>
 </html>

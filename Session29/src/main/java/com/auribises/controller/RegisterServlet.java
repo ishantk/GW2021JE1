@@ -35,17 +35,21 @@ public class RegisterServlet extends HttpServlet {
 		
 		// 3. Send Back some Response
 		response.setContentType("text/html");
-		PrintWriter writer = response.getWriter();
+		PrintWriter out = response.getWriter();
 		boolean result = db.registerUser(user);
 		
+		String html = "";
 		
 		if(result) {
-			writer.println("Thank You. We have Registered You Successfully");
+			html = "<html><body><center>THANK YOU "+user.email+"<br>Registration Success<br><br>"
+					+ "<a href='home.jsp'>Enter Home</a>"
+					+ "</center></body></html>";
 		}else {
-			writer.println("OOPS. Something Went Wrong");
+			html = "<html><body><center>Somthing Went Wrong"+user.email+"<br>Please try Again</center></body></html>";
+
 		}
 		
-		
+		out.println(html);
 		
 		
 	}

@@ -53,7 +53,10 @@ public class LoginController extends HttpServlet {
 		//String message = "Thank You "+user.name;
 		String html = "";
 		if(result) {
-			html = "<html><body><center>THANK YOU "+user.email+"<br>Login Success</center></body></html>";
+			html = "<html><body><center>THANK YOU "+user.email+"<br>Login Success<br><br>"
+					+ "<a href='home.jsp'>Enter Home</a>"
+					+ "</center></body></html>";
+			
 		}else {
 			html = "<html><body><center>Invalid Credentials"+user.email+"<br>Please try Again</center></body></html>";
 		}
