@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.auribises.dao.DB;
 import com.auribses.model.User;
@@ -36,6 +37,8 @@ public class LoginController extends HttpServlet {
 		user.email = request.getParameter("txtEmail");
 		user.password = request.getParameter("txtPassword");
 		
+		System.out.println("[LOGIN CONTROLLER] User Data:"+user);
+		
 		System.out.println(user);
 		
 		// 2. Perform some Logical Operation
@@ -53,7 +56,11 @@ public class LoginController extends HttpServlet {
 		//String message = "Thank You "+user.name;
 		String html = "";
 		if(result) {
-			html = "<html><body><center>THANK YOU "+user.email+"<br>Login Success<br><br>"
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("keyUser", user);
+			
+			html = "<html><body><center>THANK YOU "+user.name+"<br>Login Success<br><br>"
 					+ "<a href='home.jsp'>Enter Home</a>"
 					+ "</center></body></html>";
 			

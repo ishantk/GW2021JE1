@@ -12,7 +12,8 @@ import java.util.Map;
 
 public class User {
 	
-	String name;
+	public String _id;
+	public String name;
 	public String email;
 	public String password;
 	
@@ -67,9 +68,11 @@ public class User {
 		return map;
 	}
 
+
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "User [_id=" + _id + ", name=" + name + ", email=" + email + ", password=" + password + "]"
+				+ "\n"+super.toString();
 	}
 
 }
